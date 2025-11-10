@@ -1,0 +1,295 @@
+/* Ocultar todos los departamentos */
+.dept-info {
+  display: none;
+}
+
+/* Mostrar el departamento seleccionado */
+.dept-info:target {
+  display: block;
+}
+
+/* Mostrar La Paz por defecto al cargar la página */
+body:not(:has(:target)) #la-paz {
+  display: block;
+}
+
+/* Centrar imagen o grupo de imágenes dentro del artículo usando Flexbox */
+.centrar-img {
+  display: flex !important;
+  justify-content: center;
+  align-items: center; /* Cambiado a 'center' para centrar verticalmente si tienen alturas ligeramente distintas */
+  gap: 1.5rem;
+  margin: 1rem auto;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  max-width: 70%;
+}
+
+/* Estilos para las imágenes individuales dentro de un contenedor .centrar-img */
+.centrar-img img { /* Aplica estos estilos a CUALQUIER img dentro de un .centrar-img */
+  display: block;
+  /* Eliminamos el max-width porcentual aquí y en su lugar controlamos el tamaño absoluto o máximo */
+  max-width: 300px; /* **NUEVO:** Define un ancho máximo para cada imagen (ajusta este valor) */
+  height: 200px; /* **NUEVO:** Define una altura fija para cada imagen */
+  object-fit: cover; /* **NUEVO:** Recorta la imagen para que se ajuste a las dimensiones sin distorsionarse */
+  width: auto; /* Permite que el ancho se ajuste proporcionalmente a la altura o al max-width */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Media query para ajustar el tamaño de las imágenes individuales en pantallas muy pequeñas */
+@media (max-width: 768px) {
+  .centrar-img img {
+    max-width: 90%; /* En pantallas más pequeñas, que cada imagen ocupe casi todo el ancho */
+    height: auto; /* Permite que la altura se ajuste proporcionalmente para responsividad */
+    object-fit: contain; /* Ajusta la imagen dentro de su contenedor sin recortar */
+  }
+}
+
+/* Sección Nuestro equipo moderna */
+#equipo {
+  text-align: center;
+}
+
+#equipo h2 {
+  color: #00796b;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+#equipo article ul {
+  list-style: none; /* quitar puntos */
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem; /* separación entre tarjetas */
+}
+
+#equipo article ul li {
+  background: #e0f7f5;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  flex: 1 1 200px; /* adaptable a tamaño de pantalla */
+  max-width: 250px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-weight: 500;
+  color: #004d40;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#equipo article ul li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* SECCION PANDO Para dar un aire más “selvático” a la sección Pando */
+#pando {
+  background: linear-gradient(to bottom, #f0fff4 0%, #e6fffa 100%);
+  border-left: 6px solid #2f7d32; /* verde selva */
+  padding: 2rem 1.5rem;
+  border-radius: 8px;
+}
+
+#pando h2 {
+  color: #1b5e20;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+}
+
+#pando img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+
+/* Sección Contacto */
+#contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#contacto label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+#contacto input,
+#contacto textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#contacto button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+#contacto button:hover,
+#contacto button:focus {
+  background-color: #004d40;
+}
+
+  /* Reset mínimo */
+body, h1, h2, p, ul, li {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: system-ui, sans-serif;
+  background: #f0f2f5;
+  color: #222;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header fijo */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #004d40;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  z-index: 100;
+}
+header h1 {
+  margin-bottom: 0.5rem;
+}
+header nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 1.5rem;
+}
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+header nav a:hover,
+header nav a:focus {
+  text-decoration: underline;
+}
+
+/* Layout principal */
+main {
+  display: flex;
+  max-width: 1200px;
+  margin: 120px auto 2rem auto; /* espacio por header */
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* Menú lateral */
+nav.grid-deptos {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+nav.grid-deptos a {
+  display: block;
+  padding: 0.8rem 1rem;
+  background: #00796b;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+}
+nav.grid-deptos a:hover,
+nav.grid-deptos a:focus {
+  background: #004d40;
+}
+
+/* Contenido central */
+.content {
+  flex: 1;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  min-height: 300px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Ocultar todos los departamentos */
+.dept-info {
+  display: none;
+}
+
+/* Mostrar el departamento seleccionado usando :target */
+.dept-info:target {
+  display: block;
+}
+
+/* Opcional: mensaje inicial antes de seleccionar un departamento */
+.dept-info.inicio {
+  display: block;
+  text-align: center;
+  font-style: italic;
+  color: #555;
+}
+
+/* Compensar scroll por header */
+.dept-info::before {
+  content: "";
+  display: block;
+  height: 120px; /* igual que el header */
+  margin-top: -120px;
+  visibility: hidden;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: #004d40;
+}
+article p {
+  margin: 0.5rem 0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #004d40;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  nav.grid-deptos {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
